@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bot Name - Commands</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 1em;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #297fb8;
+        }
+
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .category-content.active {
+            max-height: 500px; /* Adjust as needed */
+        }
+
+        .command {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #3498db;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Bot Name - Commands</h1>
+        <p>Explore the commands available for your Discord bot!</p>
+    </header>
+
+    <section>
+        <!-- Category buttons -->
+        <button onclick="toggleCategory('owner')">Owner</button>
+        <div class="category-content" id="owner-commands">
+            <p class="command">!shutdown - Shut down the bot.</p>
+            <p class="command">!restart - Restart the bot.</p>
+            <!-- Add more owner commands as needed -->
+        </div>
+
+        <button onclick="toggleCategory('moderation')">Moderation</button>
+        <div class="category-content" id="moderation-commands">
+            <p class="command">!kick <user> - Kick a user from the server.</p>
+            <p class="command">!ban <user> - Ban a user from the server.</p>
+            <!-- Add more moderation commands as needed -->
+        </div>
+
+        <button onclick="toggleCategory('fun')">Fun</button>
+        <div class="category-content" id="fun-commands">
+            <p class="command">!meme - Display a random meme.</p>
+            <p class="command">!joke - Tell a random joke.</p>
+            <!-- Add more fun commands as needed -->
+        </div>
+
+        <button onclick="toggleCategory('general')">General</button>
+        <div class="category-content" id="general-commands">
+            <p class="command">!help - Display the list of available commands.</p>
+            <p class="command">!info - Get information about the bot.</p>
+            <!-- Add more general commands as needed -->
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2023 Your Bot Name. All rights reserved.
+    </footer>
+
+    <script>
+        function toggleCategory(category) {
+            const content = document.getElementById(`${category}-commands`);
+            content.classList.toggle('active');
+            const allContents = document.querySelectorAll('.category-content');
+            allContents.forEach((item) => {
+                if (item !== content && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
